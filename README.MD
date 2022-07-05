@@ -34,7 +34,7 @@ FIDO可以是上层过滤器或下层过滤器，上层过滤器在设备堆栈�
   - Class = DiskDrive
   - ClassGuid = {4d36e967-e325-11ce-bfc1-08002be10318}
 
-![image-20220627174459267](/Users/zz-b55/Downloads/DiskProt/README.assets/image-20220627174459267.png)
+![image-20220627174459267](README.assets/image-20220627174459267.png)
 
 WDF过滤器的结构与FDO相同，在`DriverEntry`中创建WDFDRIVER对象并与框架链接，对于过滤器驱动，当PnP Manager枚举指定设备的驱动程序时，将会调用EvtDriverDeviceAdd事件用于处理回调。
 
@@ -321,7 +321,7 @@ DiskName                 = "DiskProt Installation Disk"
 
 ## 效果
 
-![image-20220628131515168](/Users/zz-b55/Downloads/DiskProt/README.assets/image-20220628131515168.png)
+![image-20220628131515168](README.assets/image-20220628131515168.png)
 
 ## 注意事项
 
