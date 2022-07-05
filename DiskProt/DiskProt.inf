@@ -1,0 +1,55 @@
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = %ClassNameToFilter%   
+ClassGUID   = %ClassGUIDToFilter% 
+Provider    = %Provider%
+DriverVer   = 
+CatalogFile = DiskProt.cat
+
+
+[DefaultInstall.NT]
+CopyFiles = @DiskProt.sys
+Addreg    = DiskProt.AddReg
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[DiskProt.AddReg]
+HKLM, System\CurrentControlSet\Control\Class\%ClassGUIDToFilter%, UpperFilters, 0x00010008, %DriverName%     
+
+
+[DefaultInstall.NT.Services]
+AddService = DiskProt, , DiskProt.Service.Install
+
+[DiskProt.Service.Install]
+DisplayName      = %ServiceName%
+Description      = %ServiceDescription%
+ServiceBinary    = %12%\%DriverName%.sys        
+ServiceType      = 1                            ;SERVICE_KERNEL_DRIVER
+StartType        = 0                            ;SERVICE_BOOT_START 
+ErrorControl     = 1                            ;SERVICE_ERROR_NORMAL
+AddReg           = KMDFVerifierAddReg
+
+
+[KMDFVerifierAddReg]
+HKR, Parameters\Wdf,VerifierOn,0x00010001,1
+HKR, Parameters\Wdf,VerboseOn,0x00010001,1
+HKR, Parameters\Wdf,DbgBreakOnError,0x00010001,1
+
+
+[SourceDisksFiles]
+DiskProt.sys=1
+
+[SourceDisksNames]
+1 = %DiskName%
+
+
+[Strings]
+ClassGUIDToFilter       = "{4d36e967-e325-11ce-bfc1-08002be10318}"
+ClassNameToFilter       = "DiskDrive" 
+Provider                = "yunshanwuyin"
+ServiceDescription      = "disk protect"
+ServiceName             = "DiskProt"
+DriverName              = "DiskProt"
+DiskName                 = "DiskProt Installation Disk"
