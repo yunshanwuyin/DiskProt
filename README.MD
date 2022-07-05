@@ -10,7 +10,7 @@ Windows上有几种不同类型的过滤器驱动程序，从文件系统过滤�
 
 操作系统按照[设备对象](https://docs.microsoft.com/zh-cn/windows-hardware/drivers/kernel/types-of-wdm-device-objects)来表示设备，一个或多个设备对象与每个设备相关联，通过操作设备对象来对设备进行相关操作。
 
-![未命名文件](/Users/zz-b55/Desktop/归档/assets/未命名文件.jpeg)
+![未命名文件](README.assets/7011852.jpeg)
 
 - FDO：全称为Functional Device Object，表示功能设备对象，是设备的主要驱动程序；
 - PDO：全称为Physical Device Object，表示物理设备对象，但不一定是物理设备，本质是总线上的设备与总线本身之间的接口；
@@ -34,9 +34,7 @@ FIDO可以是上层过滤器或下层过滤器，上层过滤器在设备堆栈�
   - Class = DiskDrive
   - ClassGuid = {4d36e967-e325-11ce-bfc1-08002be10318}
 
-![image-20220627174459267](/Users/zz-b55/Desktop/归档/assets/image-20220627174459267.png)
-
-
+![image-20220627174459267](/Users/zz-b55/Downloads/DiskProt/README.assets/image-20220627174459267.png)
 
 WDF过滤器的结构与FDO相同，在`DriverEntry`中创建WDFDRIVER对象并与框架链接，对于过滤器驱动，当PnP Manager枚举指定设备的驱动程序时，将会调用EvtDriverDeviceAdd事件用于处理回调。
 
@@ -323,7 +321,7 @@ DiskName                 = "DiskProt Installation Disk"
 
 ## 效果
 
-![image-20220628131515168](/Users/zz-b55/Desktop/归档/assets/image-20220628131515168.png)
+![image-20220628131515168](/Users/zz-b55/Downloads/DiskProt/README.assets/image-20220628131515168.png)
 
 ## 注意事项
 
